@@ -16,6 +16,8 @@ This `TinyService` is backed by an `in-memory` database called `h2` that is pret
 
 Upon start-up of the application we have `PopulateDatabase` class that basically uses `Spring Data` repository to create `20K` Student object and `Bulk Save` it in the db. So once your application is started, you have nearly `20K` records. You can `increase/decrease` this as you wish. 
 
+**Note:** When navigating to `h2-console` don't forget to update the `JDBC url` to point to the same that is in `src/main/resources/application.properties` 
+
 ### How to Get Started? 
 Glad you asked! All you have to do is ensure that you have `maven` and do the following steps 
 - Clone the `repo` locally 

@@ -1,0 +1,21 @@
+scenarios: 
+ StudentListAndGetById: 
+  requests: 
+   - url: http://localhost:8080/students/list
+     label: Student List
+   - url: http://localhost:8080/students/1
+     label: Student by Id
+
+execution: 
+ - scenario: StudentListAndGetById 
+   concurrency: 15
+   ramp-up: 2s
+   hold-for: 15s
+
+reporting:
+ - module: console 
+ - module: final-stats 
+   summary: true 
+   percentiles: true
+   test-duration: true 
+   dump-csv: single_scenario_multi_req.csv

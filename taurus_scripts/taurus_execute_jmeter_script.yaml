@@ -1,0 +1,14 @@
+scenarios: 
+ JMeterExample: 
+  script: student_crud_jmeter.jmx
+
+execution: 
+ - scenario: JMeterExample
+   concurrency: 200
+   ramp-up: 10s
+   hold-for: 45s
+
+reporting: 
+ - module: console 
+ - module: final-stats
+   dump-csv: taurus_execute_jmeter_script.csv

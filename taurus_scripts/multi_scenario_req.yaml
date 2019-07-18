@@ -1,0 +1,51 @@
+scenarios: 
+ StudentList: 
+  requests: 
+   - url: http://localhost:8080/students/list
+     label: Student List
+ StudentById:
+  requests:
+   - url: http://localhost:8080/students/1
+     label: Student by Id
+ StudentDelete:
+  requests:
+   - url: http://localhost:8080/students/19
+     label: Student Delete 22
+     method: DELETE
+ StudentCreate: 
+  requests: 
+   - url: http://localhost:8080/students
+     label: Create Student
+     method: POST
+     body-file: student.json
+     headers: 
+      Content-Type: application/json
+
+execution: 
+ - scenario: StudentList
+   concurrency: 150
+   ramp-up: 15s
+   hold-for: 60s
+
+ - scenario: StudentById
+   concurrency: 50
+   ramp-up: 10s
+   hold-for: 30s
+ 
+ - scenario: StudentDelete
+   concurrency: 1
+   ramp-up: 0s
+   hold-for: 5s
+
+ - scenario: StudentCreate
+   concurrency: 100
+   ramp-up: 20s
+   hold-for: 35s
+    
+reporting:
+ - module: console 
+ - module: final-stats 
+   summary: true 
+   percentiles: true
+   test-duration: true 
+   dump-csv: multi_scenario_req.csv

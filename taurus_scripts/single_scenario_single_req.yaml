@@ -1,0 +1,19 @@
+scenarios: 
+ StudentList: 
+  requests: 
+   - url: http://localhost:8080/students/list
+     label: Student List
+
+execution: 
+ - scenario: StudentList 
+   concurrency: 15
+   ramp-up: 2s
+   hold-for: 40s
+
+reporting:
+ - module: console 
+ - module: final-stats 
+   summary: true 
+   percentiles: true
+   test-duration: true 
+   dump-csv: single_scenario_single_req.csv

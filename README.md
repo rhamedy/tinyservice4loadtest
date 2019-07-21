@@ -1,4 +1,7 @@
+
 # Student TinyService for Load Testing (RESTful)
+
+Here is a medium [article](https://medium.com/@rhamedy/how-to-load-test-a-developers-guide-to-performance-testing-5264faaf4e33?sk=b6286f9bed051f53a642c62c163014f3) on how to use this **repository** to design and run basic load tests using **Apache JMeter** and **Taurus** frameworks.   
 
 This is a `Spring Boot 2.1.6` tiny app that includes `webapp, actuator, spring-data-jpa` starts and exposes four (4) endpoints as listed below 
 
